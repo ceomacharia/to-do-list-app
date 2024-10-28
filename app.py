@@ -10,9 +10,9 @@ task_list = {}
 
 while True:
     menu_options()
-    choice = input("choose an option (1-7):")
+    choice = input("choose an option (1-6):")
 
-    if choice == "7": #exit
+    if choice == "6": #exit
         print("exiting")
         break
     elif choice == "1":  #add new task
@@ -24,8 +24,14 @@ while True:
 
     elif choice == "2":  #view all tasks
         if task_list:
-            print(task_list.items())
+           for key,value in task_list.items():
+               print(key,":",value)
         else:
             print("No current tasks")
 
-    elif choice == "4": #delete a task
+    elif choice == "5": #delete a task
+        if task_list:
+            task_list.clear()
+            print("task list succesfully cleared")
+        else:
+            print("print task list already empty")
